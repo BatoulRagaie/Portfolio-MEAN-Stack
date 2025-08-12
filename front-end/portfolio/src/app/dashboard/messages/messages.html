@@ -1,0 +1,19 @@
+<div class="messages-container">
+  <div 
+    class="message-card" 
+    *ngFor="let msg of messages"
+    [ngClass]="{ 'unread': !msg.isRead, 'read': msg.isRead }"
+  >
+    <div class="message-header">
+      <h3>{{ msg.subject }}</h3>
+      <small>{{ msg.name }} - {{ msg.email }}</small>
+      <small>{{ msg.createdAt | date:'medium' }}</small>
+    </div>
+    <p class="message-content">{{ msg.message }}</p>
+
+    <div class="message-actions">
+      <button class="mark-read" (click)="markAsRead(msg)" *ngIf="!msg.isRead">Mark as Read</button>
+      <button class="delete" (click)="deleteMessage(msg._id)">Delete</button>
+    </div>
+  </div>
+</div>

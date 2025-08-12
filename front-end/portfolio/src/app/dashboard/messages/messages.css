@@ -1,0 +1,86 @@
+.messages-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.message-card.unread {
+  background: #f0f8ff; 
+  border-left: 4px solid #1abc9c;
+}
+
+.message-card.read {
+  background: #fafafa; /* لون هادئ للقراءة */
+  border-left: 4px solid transparent;
+}
+
+.message-card:hover {
+  transform: scale(1.01);
+}
+
+.message-header {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+
+.message-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+}
+
+.message-header small {
+  color: #555;
+  font-size: 0.85rem;
+}
+
+.message-content {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.message-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.message-actions button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  color: #fff;
+}
+
+.message-actions .mark-read {
+  background: #1abc9c;
+}
+
+.message-actions .mark-read:hover {
+  background: #16a085;
+}
+
+.message-actions .delete {
+  background: #e74c3c;
+}
+
+.message-actions .delete:hover {
+  background: #c0392b;
+}

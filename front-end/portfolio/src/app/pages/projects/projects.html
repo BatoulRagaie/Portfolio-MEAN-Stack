@@ -1,0 +1,35 @@
+<h2 class="page-title">Our Projects</h2>
+<div class="about-container">
+
+  <!-- Categories Filter Bar -->
+  <div class="categories-bar">
+    <button (click)="selectCategory('All')" [class.active]="selectedCategory === 'All'">All</button>
+    <button *ngFor="let group of groupedProjects" 
+            (click)="selectCategory(group.category)"
+            [class.active]="selectedCategory === group.category">
+      {{ group.category }}
+    </button>
+  </div>
+
+  <!-- Projects List -->
+  <section>
+    <h2 class="page-title">{{ selectedCategory === 'All' ? 'All Projects' : selectedCategory }}</h2>
+    
+    <div class="projects-grid">
+      <div *ngFor="let project of filteredProjects()" class="project-card" (click)="goToProject(project.link)">
+        <img [src]="getImage(project.image)" alt="{{ project.title }}" class="project-image" />
+        <h3 class="project-title">
+          {{ project.title }}
+          <a class="link-icon" (click)="goToProject(project.link); $event.stopPropagation();" title="Go to project">
+            🔗
+          </a>
+        </h3>
+        <p class="project-desc">
+          {{ project.description | slice:0:100 }}...
+          <a (click)="goToProject(project.link); $event.stopPropagation();" class="show-more">Show More</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div>

@@ -1,0 +1,28 @@
+<form [formGroup]="personalForm" (ngSubmit)="onSubmit()">
+  <input formControlName="name" placeholder="Name" />
+  <input formControlName="title" placeholder="Title" />
+  <textarea formControlName="bio" placeholder="Bio"></textarea>
+  <input formControlName="email" placeholder="Email" type="email" />
+  <input formControlName="phone" placeholder="Phone" />
+  <input formControlName="address" placeholder="Address" />
+
+  <h4>Social Links</h4>
+  <input formControlName="github" placeholder="GitHub" />
+  <input formControlName="linkedin" placeholder="LinkedIn" />
+  <input formControlName="facebook" placeholder="Facebook" />
+  <input formControlName="instagram" placeholder="Instagram" />
+
+  <h4>Files</h4>
+  <label>Current Profile Image:</label>
+  <img *ngIf="image" [src]="image" alt="Profile" width="150" />
+
+  <label>Profile Image</label>
+  <input type="file" (change)="onImageSelected($event)" />
+
+  <label>Current CV:</label>
+  <a *ngIf="cvLink" [href]="cvLink" target="_blank">Download CV</a>
+  <label>CV</label>
+  <input type="file" (change)="onCvSelected($event)" />
+
+  <button type="submit">Save</button>
+</form>
