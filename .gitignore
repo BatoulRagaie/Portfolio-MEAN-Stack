@@ -1,0 +1,15 @@
+# node modules
+node_modules/
+
+# build folders
+dist/
+build/
+
+# env files
+.env
+
+# IDE folders
+.vscode/
+.DS_Store
+Thumbs.db
+
